@@ -6,17 +6,11 @@ const regExp = /Id$/;
 
 function decode(encoded, translations) {
   encoded.forEach((obj) => {
-    // const regExp = /Id$/;
-
-    //   const a = Object.keys(e);
     for (let key in obj) {
-      // const mat = regExp.exec(key);
       if (regExp.exec(key) && key !== "groupId") {
-        //   console.log(obj[key]);
         const s = obj[key];
         if (s in translations) {
           obj[key] = translations[s];
-          //   console.log(obj[key]);
         }
       }
     }
@@ -39,22 +33,3 @@ function getUniqueId(encoded) {
   console.log(Object.keys(uniqueId));
 }
 getUniqueId(encoded);
-
-// encoded.forEach((obj) => {
-//   const regExp = /Id$/;
-
-//   //   const a = Object.keys(e);
-//   for (let key in obj) {
-//     // const mat = regExp.exec(key);
-//     if (regExp.exec(key) && key !== "groupId") {
-//       //   console.log(obj[key]);
-//       const s = obj[key];
-//       if (s in translations) {
-//         obj[key] = translations[s];
-//         // console.log(obj[key]);
-//       }
-//     }
-//   }
-// });
-
-// console.log(decoded)
